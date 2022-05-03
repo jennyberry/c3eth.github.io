@@ -1,0 +1,236 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Catalyst Eastern Town Hall – Seputar Cardano</title><link>/id/docs/seputar-cardano/</link><description>Recent content in Seputar Cardano on Catalyst Eastern Town Hall</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="/id/docs/seputar-cardano/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Biaya Transaksi di Cardano</title><link>/id/docs/seputar-cardano/biaya-transaksi-di-cardano/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/id/docs/seputar-cardano/biaya-transaksi-di-cardano/</guid><description>
+&lt;h3 id="1-mengapa-biaya-transaksi-transaction-fee-dibutuhkan-di-jaringan-cardano">&lt;strong>1. Mengapa biaya transaksi (&lt;em>transaction fee&lt;/em>) dibutuhkan di jaringan Cardano?&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>Sebagai insentif bagi pihak – pihak yang menjalankan node server di jaringan atas waktu, biaya, dan usaha yang telah dikeluarkan.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Mencegah serangan &lt;em>DDoS (Distributed Denial of Service)&lt;/em> dimana penyerang atau aktor jahat membanjiri jaringan dengan banyak transaksi palsu.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-bagaimana-cara-kerja-biaya-transaksi-di-cardano">&lt;strong>2. Bagaimana cara kerja biaya transaksi di Cardano?&lt;/strong>&lt;/h3>
+&lt;p>Ketika seseorang ingin mengirimkan ADA ke orang lain, ada biaya minimal yang dihitung untuk transaksi tersebut. Agar transaksi dianggap valid, maka biaya ini harus masuk ke dalam hitungan total biaya.&lt;/p>
+&lt;p>Semua biaya transaksi dikumpulkan ke dalam sebuah ‘virtual pot’, untuk kemudian didistribusikan ke seluruh partisipan atau delegator di jaringan Cardano.&lt;/p>
+&lt;h3 id="3-bagaimana-penghitungan-biaya-transaksi-di-cardano">&lt;strong>3. Bagaimana penghitungan biaya transaksi di Cardano?&lt;/strong>&lt;/h3>
+&lt;blockquote>
+&lt;p>&lt;em>&lt;strong>Rumus = a + b * size&lt;/strong>&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>Dimana a dan b bernilai konstan, sedangkan size adalah ukuran transaksi dalam Bytes yang sifatnya dinamis.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>&lt;strong>Saat ini, nilai a = 0.155381 ADA, sedangkan nilai b = 0.000043946 ADA/Byte.&lt;/strong>&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Contoh:&lt;/strong>&lt;/p>
+&lt;p>Sebuah transaksi ukuran 200 Bytes (ukuran tipikal transaksi), maka total biayanya =&lt;/p>
+&lt;p>0.155381 ADA + 0.000043946 ADA/Byte * 200 Bytes = 0.1641702 ADA&lt;/p>
+&lt;h3 id="kesimpulan">&lt;strong>Kesimpulan&lt;/strong>&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>Dengan penerapan parameter nilai a di atas, walaupun transaksi - transaksi palsu berukuran sangat kecil, tetap akan merugikan penyerang atau aktor jahat karena harus membayar biaya minimal transaksi, terlebih jika transaksinya sampai ribuan.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Penerapan parameter b adalah untuk merefleksikan jumlah biaya aktual yang diperlukan dalam memproses sebuah transaksi. Misalnya transaksi yang berukuran besar, pasti membutuhkan ukuran memory yang besar juga, oleh karena itu transaksi ini harus lebih mahal daripada transaksi lain yang berukuran kecil.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Nilai a &amp;amp; b dapat di-adjust lagi ke depannya untuk lebih menyesuaikan dengan keadaan di masa depan.&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>Docs: Parameter Desentralisasi Cardano</title><link>/id/docs/seputar-cardano/parameter-desentralisasi-cardano/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/id/docs/seputar-cardano/parameter-desentralisasi-cardano/</guid><description>
+&lt;h3 id="parameter-penentu-desentralisasi-dan-keberlangsungan-cardano">&lt;strong>Parameter Penentu Desentralisasi dan Keberlangsungan Cardano&lt;/strong>&lt;/h3>
+&lt;h3 id="1-parameter-k-jumlah-stake-pool-yang-diinginkan">&lt;strong>1. Parameter ‘k’ (jumlah stake pool yang diinginkan)&lt;/strong>&lt;/h3>
+&lt;p>&lt;strong>Positif:&lt;/strong> semakin tinggi nilai k, sistem semakin terdesentralisasi&lt;/p>
+&lt;p>&lt;strong>Negatif:&lt;/strong> semakin tinggi nilai k,&lt;/p>
+&lt;ul>
+&lt;li>Mengurangi efisiensi karena biaya dan energi yang dibutuhkan semakin besar (karena SPO yang bermunculan akan jadi banyak sekali)&lt;/li>
+&lt;li>Rewards yang menjadi lebih kecil bagi para SPO dan delegator&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Implementasi:&lt;/strong>&lt;/p>
+&lt;p>a. Saat awal Shelley era, parameter ‘k’ = 150, membatasi ukuran pool di angka 210 juta ADA.&lt;/p>
+&lt;p>(150 * 210.000.000 ADA = ~31.500.000.000 ADA di sirkulasi saat itu)&lt;/p>
+&lt;p>b. Di Dec 2020, parameter ‘k’ berubah menjadi 500, batas ukuran pool di angka 64 juta ADA. (Ada lebih dari 100 stake pool yang &lt;em>over saturated&lt;/em> ketika parameter ‘k’ ini diterapkan).&lt;/p>
+&lt;p>c. Di Mar 2021, rencananya parameter ‘k’ berubah lagi menjadi 1.000 dimana batas ukuran pool di angka 32 juta ADA. Namun, sampai saat ini belum diimplementasikan (masih berlaku batas ukuran pool di angka 64 juta ADA).&lt;/p>
+&lt;h3 id="2-ekspansi-moneter">&lt;strong>2. Ekspansi Moneter&lt;/strong>&lt;/h3>
+&lt;p>Rewards untuk SPO dan delegator berasal dari dua sumber:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Biaya Transaksi&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Cadangan ADA&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Cara Penghitungan Rewards:&lt;/strong>&lt;/p>
+&lt;p>a. Dalam setiap epoch, biaya dari setiap transaksi dari semua block yang diproduksi, masuk ke dalam sebuah ‘virtual pot’.&lt;/p>
+&lt;p>b. Kemudian ada percentage ‘ρ’ dari cadangan ADA yang juga ditambahkan ke dalam ‘virtual pot’ itu.&lt;/p>
+&lt;p>c. Dari ‘virtual pot’ ini, ada percentage ‘τ’ yang dikirim ke treasury terlebih dahulu, baru kemudian sisanya dibagikan sebagai rewards.&lt;/p>
+&lt;p>Adanya mekanisme di atas untuk memastikan, di masa awal pengembangan Cardano ketika jumlah transaksi belum terlalu banyak, porsi rewards yang diambil dari cadangan ADA cukup besar. Hal ini untuk memberikan insentif kepada &lt;em>early adopters&lt;/em>. Namun seiring waktu berjalan dengan banyaknya volume transaksi, rewards dari biaya transaksi akan mengkompensasi cadangan ADA yang semakin menipis.&lt;/p>
+&lt;p>Selain itu, mekanisme ini juga memastikan bahwa rewards yang tersedia jumlahnya dapat diprediksi dan berubah secara gradual. Tidak akan ada unsur mendadak seperti rewards di BTC dengan proses halving setiap 4 tahun sekali.&lt;/p>
+&lt;p>&lt;em>&lt;strong>2.1. Parameter ‘ρ’ (cadangan ADA yang ditambahkan ke dalam ‘virtual pot’)&lt;/strong>&lt;/em>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>&lt;strong>Nilai ‘ρ’ yang ditentukan saat ini adalah sebesar 0.22%.&lt;/strong>&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Positif:&lt;/strong> semakin tinggi nilai ‘ρ’, semakin tinggi rewards bagi semua pengguna di tahap awal, treasury juga lebih cepat terisi&lt;/p>
+&lt;p>&lt;strong>Negatif:&lt;/strong> semakin tinggi nilai ‘ρ’, semakin cepat cadangan ADA berkurang&lt;/p>
+&lt;p>&lt;strong>Implementasi:&lt;/strong>&lt;/p>
+&lt;p>Perlu ada keseimbangan antara pemberian insentif kepada &lt;em>early adopters&lt;/em> dan perspektif jangka panjang kepada semua stakeholders.&lt;/p>
+&lt;p>&lt;em>&lt;strong>2.2. Parameter ‘τ’ (ADA yang dikirim ke treasury terlebih dahulu dari ‘virtual pot’)&lt;/strong>&lt;/em>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>&lt;strong>Nilai ‘τ’ yang ditentukan saat ini adalah sebesar 5%.&lt;/strong>&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>Nantinya, treasury akan jauh lebih besar daripada rewards yang dibagikan. Mengapa demikian?&lt;/p>
+&lt;p>Ke depan, tidak masuk akal jika semua ADA hanya akan di-staking. Beberapa pasti ada yang tersimpan di exchange untuk bertransaksi dan digunakan juga dalam smart contracts.&lt;/p>
+&lt;p>ADA yang tidak di-staking ini akan memunculkan &lt;em>unclaimed rewards&lt;/em> karena tidak dibagikan ke delegator (di luar dari parameter ‘τ’ yang 5% sudah diambil duluan sebelumnya).&lt;/p>
+&lt;p>&lt;em>Unclaimed rewards&lt;/em> ini akan masuk ke treasury dan semakin meningkatkan saldo treasury. Dengan ini, maka tersedia dana yang cukup untuk membiayai pengembangan Cardano di masa depan.&lt;/p>
+&lt;h3 id="3-parameter-a0-pledge-dari-spo-terhadap-rewards-pool">&lt;strong>3. Parameter ‘a0’ (pledge dari SPO terhadap rewards pool)&lt;/strong>&lt;/h3>
+&lt;blockquote>
+&lt;p>&lt;em>&lt;strong>Nilai ‘a0’ yang ditentukan saat ini adalah sebesar 0.3.&lt;/strong>&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Positif:&lt;/strong> semakin tinggi nilai ‘a0’, semakin tinggi pula rewards yang diterima dengan pledge besar.&lt;/p>
+&lt;p>Selain memberikan perlindungan ekstra terhadap &lt;em>sybil attack&lt;/em>, juga dapat memberikan keuntungan kepada operator untuk meminta profit margin yang lebih tinggi sambil tetap menjaga level ketertarikan di mata para delegator karena rewards yang lebih besar.&lt;/p>
+&lt;p>&lt;strong>Negatif:&lt;/strong> semakin tinggi nilai ‘a0’, akan men-&lt;em>discourage&lt;/em> orang – orang untuk menjadi SPO, khususnya bagi yang tidak mampu menyediakan pledge besar karena dianggap tidak menguntungkan (rewards-nya lebih kecil).&lt;/p>
+&lt;h3 id="4-biaya-minimum-yang-diberikan-untuk-spo">&lt;strong>4. Biaya Minimum yang diberikan untuk SPO&lt;/strong>&lt;/h3>
+&lt;p>Ada biaya minimum atau &lt;em>fixed cost&lt;/em> yang diterapkan oleh jaringan untuk diberikan kepada setiap SPO sebesar &lt;strong>340 ADA&lt;/strong> dalam setiap epoch &lt;em>(di luar dari profit margin yang diatur oleh SPO sendiri)&lt;/em>.&lt;/p>
+&lt;p>Ini adalah biaya minimum yang dipercayai cukup untuk membiayai kebutuhan server dalam menjalankan stake pool.&lt;/p>
+&lt;p>Adanya minimum cost ini untuk mencegah &lt;em>race to the bottom&lt;/em> dimana para SPO mengklaim biaya operasional yang sangat rendah untuk menarik para delegator.&lt;/p>
+&lt;p>Hal ini mungkin menguntungkan para delegator dalam jangka pendek, namun dalam jangka panjang akan men-&lt;em>discourage&lt;/em> pengelolaan stake pool secara professional yang dapat berdampak bagi keamanan jaringan nantinya.&lt;/p></description></item><item><title>Docs: Parameter Jaringan Cardano</title><link>/id/docs/seputar-cardano/parameter-jaringan-cardano/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/id/docs/seputar-cardano/parameter-jaringan-cardano/</guid><description>
+&lt;h3 id="parameter-jaringan-blockchain-cardano">&lt;strong>Parameter Jaringan Blockchain Cardano&lt;/strong>&lt;/h3>
+&lt;h3 id="1-throughput-volume-transfer-data">&lt;strong>1. Throughput (volume transfer data)&lt;/strong>&lt;/h3>
+&lt;p>Ukuran block: 64 KB.&lt;/p>
+&lt;p>Ukuran untuk single Plutus script transaction di-limit di 16 KB.&lt;/p>
+&lt;p>Ukuran simple transaction biasanya hanya 200-300 Bytes.&lt;/p>
+&lt;p>Minimal sebuah block dapat menampung 4 jenis transaksi: single Plutus script transaction (smart contract), native tokens, metadata, dan simple transaction seperti payment.&lt;/p>
+&lt;p>Ukuran block dapat diperbesar untuk meningkatkan throughput.&lt;/p>
+&lt;h3 id="2-mempool">&lt;strong>2. Mempool&lt;/strong>&lt;/h3>
+&lt;p>Ukuran Mempool: 128 KB (2x ukuran block).&lt;/p>
+&lt;p>Semua transaksi yang terjadi ditampung terlebih dahulu secara temporary di mempool sampai mereka siap diproses dan di-input ke dalam block.&lt;/p>
+&lt;p>Transaksi – transaksi yang pending akan dihapus dari mempool begitu block baru sudah terbentuk. Setelah itu, transaksi – transaksi yang baru bisa ditambahkan lagi ke dalam mempool.&lt;/p>
+&lt;p>Dengan ukuran mempool yang dibuat tetap seperti ini memungkinan node – node tidak overload ketika periode high demand. Walaupun itu berarti setiap transaksi yang dilakukan dari wallet maupun Dapps harus di-submit kembali.&lt;/p>
+&lt;p>Hal ini bukan berarti jaringan sedang bersusah payah (struggling), melainkan lebih tepatnya jaringan beroperasi seperti yang sudah direncanakan sebelumnya (graceful degradation).&lt;/p>
+&lt;h3 id="3-block-time-budget">&lt;strong>3. Block Time Budget&lt;/strong>&lt;/h3>
+&lt;p>Waktu yang tersedia untuk memproses semua transaksi ke dalam sebuah block. Waktu ini dibagi untuk memproses Plutus script dan transaksi – transaksi lainnya.&lt;/p>
+&lt;p>Block Time Budget di-set sebesar 1 detik.&lt;/p>
+&lt;p>Untuk Plutus script sendiri diberikan jatah waktu sebesar 50 millisecond.&lt;/p>
+&lt;h3 id="4-timeliness-waktu-adopsi-block">&lt;strong>4. Timeliness (waktu adopsi block)&lt;/strong>&lt;/h3>
+&lt;p>Jaringan harus dapat mendistribusikan (mempropagasi) transaksi dan block yang telah diproduksi ke setiap node yang tersebar di seluruh dunia, agar tercipta konsensus sehingga terverifikasi dan tervalidasi untuk di-input ke dalam blockchain.&lt;/p>
+&lt;p>Hal ini disebut sebagai data diffusion.&lt;/p>
+&lt;p>Data diffusion time di-set sebesar 5 detik karena standard dari protokol Ouroboros untuk menjamin keamanan jaringan.&lt;/p>
+&lt;h3 id="5-plutus-script-memory-units">&lt;strong>5. Plutus Script Memory Units&lt;/strong>&lt;/h3>
+&lt;p>Faktor penting bagi para developer DApps agar dapat merancang Plutus scripts yang sophisticated sehingga mampu memproses banyak input data, meningkatkan concurrency, atau memperluas kapabilitas aplikasinya.&lt;/p>
+&lt;p>Namun, semakin besar ukuran memory units, semakin besar ukuran transaksi (Bytes), semakin besar pula sumber daya yang dibutuhkan untuk memverifikasi dan memvalidasi transaksinya sehingga biaya transaksi juga menjadi semakin besar.&lt;/p>
+&lt;h3 id="throughput-vs-timeliness">&lt;strong>Throughput VS Timeliness&lt;/strong>&lt;/h3>
+&lt;p>Selanjutnya, dari kelima faktor di atas, perlu diketahui bahwa Throughput dan Timeliness adalah 2 faktor yang saling tarik menarik. Berikut penjelasannya:&lt;/p>
+&lt;ul>
+&lt;li>Throughput ditingkatkan, ukuran block diperbesar agar block mampu menampung banyak transaksi.&lt;/li>
+&lt;li>Banyak transaksi yang tertampung seolah – olah jaringan bekerja dengan cepat (network performance bagus).&lt;/li>
+&lt;li>Namun, hal ini menjadi bumerang ketika jaringan sangat sibuk (saturated) yang menyebabkan timeliness delay, yaitu ukuran block yang besar – besar sehingga waktu propagasi menjadi lebih lama. Proses verifikasi dan validasi ke dalam blockchain pun menjadi terlambat sehingga terbuka celah keamanan disitu.&lt;/li>
+&lt;li>Data diffusion time sebesar 5 detik menjadi sebuah batasan yang harus diperhatikan ketika akan meningkatkan ukuran block.&lt;/li>
+&lt;li>Oleh karena itu, untuk meningkatkan throughput, dapat dilakukan dengan efisiensi parameter jaringan lainnya (yang lebih kompleks) agar ada ruang yang cukup untuk meningkatkan ukuran block sehingga data diffusion time dapat tetap terjaga.&lt;/li>
+&lt;/ul>
+&lt;h3 id="perubahan-parameter-jaringan-akan-selalu-di-update">&lt;strong>Perubahan Parameter Jaringan (akan selalu di-update)&lt;/strong>&lt;/h3>
+&lt;blockquote>
+&lt;p>&lt;em>Perubahan yang telah dilakukan sejak awal tahun 2022&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="epoch-306">&lt;strong>Epoch 306&lt;/strong>&lt;/h4>
+&lt;ul>
+&lt;li>Ukuran block, dari 64 KB -&amp;gt; 72 KB&lt;/li>
+&lt;li>Ukuran Plutus script memory units per transaksi, dari 10.000.000 -&amp;gt; 11.250.000&lt;/li>
+&lt;/ul>
+&lt;h4 id="epoch-317">&lt;strong>Epoch 317&lt;/strong>&lt;/h4>
+&lt;ul>
+&lt;li>Ukuran Plutus script memory units per transaksi, dari 11.250.000 -&amp;gt; 12.500.000&lt;/li>
+&lt;/ul>
+&lt;h4 id="epoch-319">&lt;strong>Epoch 319&lt;/strong>&lt;/h4>
+&lt;ul>
+&lt;li>Ukuran block, dari 72 KB -&amp;gt; 80 KB&lt;/li>
+&lt;li>Ukuran Plutus script memory units per transaksi, dari 12.500.000 -&amp;gt; 14.000.000&lt;/li>
+&lt;/ul>
+&lt;h4 id="epoch-321">&lt;strong>Epoch 321&lt;/strong>&lt;/h4>
+&lt;ul>
+&lt;li>Ukuran Plutus script memory unit per block, dari 50.000.000 -&amp;gt; 56.000.000, yang berarti secara optimal dapat menampung memory 4 Plutus script transaction yang berukuran 14.000.000&lt;/li>
+&lt;/ul>
+&lt;h4 id="epoch-328">&lt;strong>Epoch 328&lt;/strong>&lt;/h4>
+&lt;ul>
+&lt;li>Ukuran Plutus script memory units per block, dari 56.000.000 → 62.000.000, yang berarti secara optimal dapat menampung memory 4 Plutus script transaction yang berukuran 14.000.000 dan transaksi Plutus script lainnya sampai maksimal 62.000.000.&lt;/li>
+&lt;/ul>
+&lt;h4 id="epoch-333">&lt;strong>Epoch 333&lt;/strong>&lt;/h4>
+&lt;ul>
+&lt;li>Ukuran block, dari 80 KB → 88 KB&lt;/li>
+&lt;/ul></description></item><item><title>Docs: Roadmap Pengembangan Cardano</title><link>/id/docs/seputar-cardano/roadmap-cardano/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/id/docs/seputar-cardano/roadmap-cardano/</guid><description>
+&lt;h3 id="byron">&lt;strong>Byron&lt;/strong>&lt;/h3>
+&lt;p>Fondasi dasar dengan kemampuan transaksi yang masih standard dimana jaringan masih di-&lt;em>maintain&lt;/em> federated network milik IOHK dan partner.&lt;/p>
+&lt;h3 id="shelley">&lt;strong>Shelley&lt;/strong>&lt;/h3>
+&lt;p>Tahapan desentralisasi dengan diperkenalkannya konsep stake pool operator (SPO) dan staking.&lt;/p>
+&lt;h3 id="goguen">&lt;strong>Goguen&lt;/strong>&lt;/h3>
+&lt;p>Tahapan adopsi smart contracts, terbagi ke dalam beberapa hard fork dengan teknologi &lt;em>HFC - Hard Fork Combinator&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>Allegra → kemampuan untuk token locking&lt;/li>
+&lt;li>Mary → support untuk multi asset dan native token, lahirnya NFT di Cardano&lt;/li>
+&lt;li>Alonzo → Plutus script untuk pengembangan DApps dan transaksi smart contracts&lt;/li>
+&lt;/ul>
+&lt;h3 id="basho">&lt;strong>Basho&lt;/strong>&lt;/h3>
+&lt;p>Tahapan skalabilitas, optimasi, dan interoperabilitas jaringan untuk meningkatkan performa Cardano agar dapat mendukung pertumbuhan dan adopsi terhadap aplikasi - aplikasi dengan volume transaksi tinggi.&lt;/p>
+&lt;h3 id="voltaire">&lt;strong>Voltaire&lt;/strong>&lt;/h3>
+&lt;p>Tahapan final yakni &lt;em>self governance&lt;/em>, terbentuknya sebuah sistem yang terdesentralisasi dan berkelanjutan secara mandiri.&lt;/p>
+&lt;p>Para pengguna dapat menggunakan stake mereka untuk melakukan voting dan menentukan arah pengembangan Cardano di masa depan.&lt;/p>
+&lt;p>Voltaire sendiri sudah mulai diperkenalkan ketika masuk ke era Shelley dimana komunitas dilibatkan melalui &lt;strong>Project Catalyst (&lt;a href="https://projectcatalyst.org/)">https://projectcatalyst.org/)&lt;/a>.&lt;/strong>&lt;/p></description></item><item><title>Docs: Serba Serbi Staking ADA</title><link>/id/docs/seputar-cardano/serba-serbi-staking-ada/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/id/docs/seputar-cardano/serba-serbi-staking-ada/</guid><description>
+&lt;h3 id="1-pengantar">&lt;strong>1. Pengantar&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>ADA tidak dikunci dan tetap dapat ditransaksikan kapan saja.&lt;/li>
+&lt;li>ADA tetap berada di dompet dan tidak akan hilang selama staking.&lt;/li>
+&lt;li>Tidak ada resiko slashing (holding ADA terkena pemotongan (slashed) oleh protokol sebagai hukuman karena tindakan merugikan yang dilakukan oleh SPO).&lt;/li>
+&lt;li>Rewards staking otomatis ditambahkan ke akun staking (compounded).&lt;/li>
+&lt;li>Biaya tetap (fixed cost) sebesar 340 ADA sesuai yang ditentukan oleh protokol dan margin (biaya di luar fixed cost yang diatur oleh SPO sendiri) diambil terlebih dahulu dari total rewards epoch untuk SPO. Selanjutnya, rewards didistribusikan ke semua delegator di SPO tersebut.&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-informasi-epoch--rewards">&lt;strong>2. Informasi Epoch &amp;amp; Rewards&lt;/strong>&lt;/h3>
+&lt;ul>
+&lt;li>Durasi sebuah Epoch adalah 5 hari.&lt;/li>
+&lt;li>Jadwal penghitungan Rewards (dengan contoh):&lt;/li>
+&lt;/ul>
+&lt;p>a. &lt;strong>Epoch 1 (sedang berjalan)&lt;/strong> → Mulai staking di SPO&lt;/p>
+&lt;p>Biaya - biaya yang dikenakan saat pertama kali staking:&lt;/p>
+&lt;ul>
+&lt;li>Biaya jaringan: ± 0.17 ADA&lt;/li>
+&lt;li>Biaya deposit Staking Key (Refundable): 2 ADA&lt;/li>
+&lt;/ul>
+&lt;p>b. &lt;strong>Epoch 2 (Hari 1-5)&lt;/strong> → Proses stake snapshot, teregistrasi ke SPO.&lt;/p>
+&lt;p>c. &lt;strong>Epoch 3 (Hari 6-10)&lt;/strong> → Proses pemilihan slot leaders dan block production.&lt;/p>
+&lt;p>Stake ADA sudah aktif dan berkontribusi di SPO.&lt;/p>
+&lt;p>d. &lt;strong>Epoch 4 (Hari 11-15)&lt;/strong> → Proses penghitungan rewards dari Epoch sebelumnya berdasarkan block production.&lt;/p>
+&lt;p>e. &lt;strong>Epoch 5 (Hari 16-20)&lt;/strong> → Menerima rewards pertama dari Epoch 3.&lt;/p>
+&lt;p>f. &lt;strong>Epoch 6 (Hari 21-25)&lt;/strong> → Menerima rewards dari Epoch 4.&lt;/p>
+&lt;p>g. &lt;strong>Epoch 7 (Hari 26-30)&lt;/strong> → Menerima rewards dari Epoch 5.&lt;/p>
+&lt;p>Rewards akan terus diterima di setiap Epoch selama SPO terus memproduksi block di 2 Epoch sebelumnya.&lt;/p>
+&lt;h3 id="3-mengubah-jumlah-staking-menambahmengurangi">&lt;strong>3. Mengubah Jumlah Staking (menambah/mengurangi)&lt;/strong>&lt;/h3>
+&lt;blockquote>
+&lt;p>&lt;em>melanjutkan contoh di atas&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>a. &lt;strong>Epoch 7 (sedang berjalan)&lt;/strong>&lt;/p>
+&lt;p>Awal staking 100 ADA, kemudian menambahkan 50 ADA, menjadi 150 ADA.&lt;/p>
+&lt;p>b. &lt;strong>Epoch 8&lt;/strong> → Masih terima rewards dari staking 100 ADA (Epoch 6)&lt;/p>
+&lt;p>Proses stake snapshot yang terbaru 150 ADA&lt;/p>
+&lt;p>c. &lt;strong>Epoch 9&lt;/strong> → Masih terima rewards dari staking 100 ADA (Epoch 7)&lt;/p>
+&lt;p>Proses pemilihan slot leaders dan block production, stake ADA terbaru 150 ADA sudah aktif.&lt;/p>
+&lt;p>d. &lt;strong>Epoch 10&lt;/strong> → Masih terima rewards dari staking 100 ADA (Epoch 8)&lt;/p>
+&lt;p>Proses penghitungan rewards dari Epoch sebelumnya berdasarkan block production.&lt;/p>
+&lt;p>e. &lt;strong>Epoch 11&lt;/strong> → Sudah terima rewards dari staking 150 ADA (Epoch 9)&lt;/p>
+&lt;h3 id="4-mengubah-spo">&lt;strong>4. Mengubah SPO&lt;/strong>&lt;/h3>
+&lt;blockquote>
+&lt;p>&lt;em>melanjutkan contoh di atas&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>a. &lt;strong>Epoch 7 (sedang berjalan)&lt;/strong>&lt;/p>
+&lt;p>Awal staking ke SPO ABC, kemudian pindah ke SPO XYZ.&lt;/p>
+&lt;p>b. &lt;strong>Epoch 8&lt;/strong> → Masih terima rewards dari SPO ABC (Epoch 6)&lt;/p>
+&lt;p>Proses stake snapshot yang terbaru di SPO XYZ.&lt;/p>
+&lt;p>c. &lt;strong>Epoch 9&lt;/strong> → Masih terima rewards dari SPO ABC (Epoch 7)&lt;/p>
+&lt;p>Proses pemilihan slot leaders dan block production, stake ADA sudah aktif di SPO XYZ.&lt;/p>
+&lt;p>d. &lt;strong>Epoch 10&lt;/strong> → Masih terima rewards dari SPO ABC (Epoch 8)&lt;/p>
+&lt;p>Proses penghitungan rewards dari Epoch sebelumnya berdasarkan block production.&lt;/p>
+&lt;p>e. &lt;strong>Epoch 11&lt;/strong> → Sudah terima rewards dari SPO XYZ (Epoch 9)&lt;/p>
+&lt;h3 id="5-withdraw-rewards--stop-staking">&lt;strong>5. Withdraw Rewards &amp;amp; Stop Staking&lt;/strong>&lt;/h3>
+&lt;p>Ada 2 opsi yang dapat dilakukan ketika withdraw rewards:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Hanya Withdraw Rewards&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>Akun staking tetap berhak mendapatkan rewards di Epoch berikutnya.
+Rewards balance dipindah ke staking balance.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Stop Staking&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>Deposit 2 ADA dikembalikan, akun staking ditarik registrasinya dan tidak berhak mendapatkan rewards lagi, termasuk dari Epoch terakhir ketika stop staking.
+Rewards balance dan staking balance dipindah seluruhnya ke available balance.&lt;/p>
+&lt;h3 id="6-diagram-staking">&lt;strong>6. Diagram Staking&lt;/strong>&lt;/h3>
+&lt;p>&lt;img src="https://aws1.discourse-cdn.com/business4/uploads/cardano/original/3X/6/2/6291c37441ab5cbaca7c188f81e00481e1cf1f36.jpeg" alt="Delegation Cycle">&lt;/p></description></item></channel></rss>
